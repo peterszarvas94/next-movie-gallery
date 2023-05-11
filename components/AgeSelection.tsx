@@ -1,8 +1,6 @@
 "use client";
 
-import { useContext, useEffect } from "react";
 import Radio from "./Radio";
-import { AgeContext } from "../context/AgeContext";
 
 function AgeSeletcion() {
 

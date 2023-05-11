@@ -1,4 +1,4 @@
-import { Movie } from "../utils/types";
+import { Movie } from "@/utils/types";
 
 interface CardProps {
   movie: Movie;

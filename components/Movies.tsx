@@ -1,9 +1,9 @@
 "use client";
 
+import { AgeContext } from "@/context/AgeContext";
+import { db } from "@/db";
 import { useContext } from "react";
 import Card from "./Card";
-import { AgeContext } from "../context/AgeContext";
-import { db } from "../db";
 
 function Movies() {
 

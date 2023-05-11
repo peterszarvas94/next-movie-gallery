@@ -1,7 +1,7 @@
 "use client";
 
+import { AgeContext } from "@/context/AgeContext";
 import { useContext } from "react";
-import { AgeContext } from "../context/AgeContext";
 import { IoMdClose } from "react-icons/io";
 
 interface RadioProps {
@@ -22,11 +22,11 @@ function Radio({ label, value }: RadioProps) {
   return (
     <div className="flex">
       <div
-        className={`${age === value ? "bg-btn-primary" : "bg-white"} h-5 w-5 border-[1px] border-black shadow-weak shadow-black cursor-pointer flex items-center justify-center`}
+        className="bg-white h-5 w-5 border-[1px] border-black shadow-light shadow-btn-primary cursor-pointer flex items-center justify-center"
         onClick={() => setAge(value)}
         tabIndex={0}
         onKeyDown={(e) => checkAccept(e)}>
-        {age === value && <IoMdClose className="text-white h-full w-full" />}
+        {age === value && <IoMdClose className="h-full w-full" />}
       </div>
       <div className="pl-2 cursor-pointer" onClick={() => setAge(value)}>{label}</div>
     </div>

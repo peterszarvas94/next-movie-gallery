@@ -23,6 +23,7 @@ module.exports = {
       boxShadow: {
         'strong': '10px 10px 0 0',
         'weak': '5px 5px 0 0',
+        'light': '4px 4px 0 0',
       }
     },
   },

@@ -1,8 +1,8 @@
 "use client";
 
-import AgeSelection from "./components/AgeSelection";
-import AgeProvider from "./context/AgeContext";
-import Movies from "./components/Movies";
+import Movies from "@/components/Movies";
+import AgeSelection from "@/components/AgeSelection";
+import AgeProvider from "@/context/AgeContext";
 
 export default function Home() {
   return (
