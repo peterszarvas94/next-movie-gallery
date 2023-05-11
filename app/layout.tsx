@@ -1,7 +1,17 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import './globals.css';
+import { VT323, Space_Mono } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const title_font = VT323({
+  weight: "400",
+  variable: "--font-title",
+  subsets: ["latin"],
+})
+
+const body_font = Space_Mono({
+  weight: "400",
+  variable: "--font-body",
+  subsets: ["latin"],
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <body className={`${title_font.variable} ${body_font.variable}`}>{children}</body>
+    </html >
   )
 }

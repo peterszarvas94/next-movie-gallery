@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,12 +9,23 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        'primary': '#1c1c1c',
+        'secondary': '#f6f6f1',
+        'btn-primary': '#5c43f5',
+        'btn-secondary': '#f5f5f0',
+        'accent': '#fa7b6a',
       },
+      fontFamily: {
+        'title': ['var(--font-title)'],
+        'body': ['var(--font-body)'],
+      },
+      boxShadow: {
+        'strong': '10px 10px 0 0',
+        'weak': '5px 5px 0 0',
+      }
     },
   },
   plugins: [],
 }
+
