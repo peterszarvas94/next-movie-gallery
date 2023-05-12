@@ -1,4 +1,4 @@
-import type { Movie } from "@/types/movie";
+import type { Movie } from "@/utils/types";
 import Link from "next/link";
 
 interface CardProps {
@@ -13,7 +13,7 @@ export default function Card({ movie }: CardProps) {
         <div className="py-2 grow">Age rating: {movie.ageRating}+</div>
         <Link
           className="bg-btn-secondary border-[1px] border-primary p-2 shadow-weak shadow-primary"
-          href={`/movies/${movie.id}`}
+          href={`/movies/${movie._id}`}
         >
           Select
         </Link>

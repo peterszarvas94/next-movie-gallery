@@ -1,6 +1,9 @@
-import { db } from "@/db";
+"use client";
+import type { Movie } from "@/types/movie";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { AiOutlineUnorderedList } from 'react-icons/ai';
+import { useRouter } from "next/navigation";
 
 interface Props {
   params: {
@@ -10,8 +13,54 @@ interface Props {
 
 export default function MoviePage({ params }: Props) {
 
-  const movieId = parseInt(params.id);
-  const movie = db.movies.find(movie => movie.id === movieId);
+  const [movie, setMovie] = useState<Movie>();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!params.id) {
+      return;
+    }
+
+    async function fetchData() {
+      const moviesRes = await fetch(`/api/movies/`)
+      if (!moviesRes.ok) {
+        console.error(moviesRes);
+        return;
+      }
+
+      const movies = await moviesRes.json();
+      if (!movies) {
+        console.error(movies);
+        return;
+      }
+
+      movies.forEach((movie: Movie) => {
+        if (movie._id === params.id) {
+          setMovie(movie);
+        }
+      });
+    }
+
+    fetchData()
+      .catch(console.error);
+  }, []);
+
+  async function handleDelete() {
+    const delRes = await fetch(`/api/movies/${movie._id}`, {
+      method: "DELETE",
+    });
+    if (!delRes.ok) {
+      console.error(delRes);
+    }
+
+    const revalidateRes = await fetch("/api/movies/revalidate");
+    if (!revalidateRes.ok) {
+      console.error(revalidateRes);
+    }
+
+    router.push("/");
+  }
 
   if (!movie) return (
     <main className="bg-secondary text-primary min-h-screen">
@@ -29,16 +78,16 @@ export default function MoviePage({ params }: Props) {
           <div className="py-2 grow">Age rating: {movie.ageRating}+</div>
           <Link
             className="bg-secondary border-[1px] border-primary p-3 shadow-weak shadow-primary text-primary font-body"
-            href={`/movies/edit/${movie.id}`}
+            href={`/movies/edit/${movie._id}`}
           >
             Edit
           </Link>
-          <Link
+          <button
             className="bg-secondary border-[1px] border-primary p-3 shadow-weak shadow-primary text-primary font-body"
-            href={`/`}
+            onClick={() => handleDelete()}
           >
             Delete
-          </Link>
+          </button>
         </div>
 
       </div>

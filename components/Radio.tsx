@@ -1,4 +1,4 @@
-import type { AgeRating } from "@/types/movie";
+import type { AgeRating } from "@/utils/types";
 import { IoMdClose } from "react-icons/io";
 
 interface RadioProps {

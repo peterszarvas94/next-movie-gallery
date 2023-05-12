@@ -1,4 +1,6 @@
-import type { AgeRating } from "@/types/movie";
+"use client";
+
+import type { AgeRating } from "@/utils/types";
 import Radio from "./Radio";
 
 interface Props {
