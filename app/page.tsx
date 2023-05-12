@@ -1,17 +1,20 @@
 "use client";
 
+import AgeSelect from "@/components/AgeSelect";
 import Movies from "@/components/Movies";
-import AgeSelection from "@/components/AgeSelection";
-import AgeProvider from "@/context/AgeContext";
+import { useState } from "react";
 
 export default function Home() {
+
+  const [value, setValue] = useState(0);
+
   return (
-    <AgeProvider>
-      <main className="bg-secondary text-primary min-h-screen">
-        <h1 className="text-5xl text-center font-title py-10">Movies</h1>
-        <AgeSelection />
-        <Movies />
-      </main>
-    </AgeProvider>
+    <main className="bg-secondary text-primary min-h-screen">
+      <h1 className="text-5xl text-center font-title py-10">Movies</h1>
+      <div className="w-fit mx-auto justify-center pb-10">
+        <AgeSelect value={value} setValue={(n) => setValue(n)} />
+      </div>
+      <Movies value={value} />
+    </main>
   )
 }

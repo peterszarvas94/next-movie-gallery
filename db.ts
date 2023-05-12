@@ -1,4 +1,4 @@
-import { Database } from "./utils/types";
+import { Database } from "./types/movie";
 
 export const db: Database = {
   "movies": [

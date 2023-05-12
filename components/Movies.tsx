@@ -1,15 +1,16 @@
 "use client";
 
-import { AgeContext } from "@/context/AgeContext";
 import { db } from "@/db";
-import { useContext } from "react";
 import Card from "./Card";
 
-function Movies() {
+interface Props {
+  value: number;
+}
 
-  const { age } = useContext(AgeContext);
+function Movies({ value }: Props) {
 
-  const movies = db.movies.filter((movie) => movie.ageRating <= age);
+  const movies = db.movies.filter((movie) => movie.ageRating <= value);
+
   return (
     <div className="flex flex-col gap-10 pb-10">
       {movies.map((movie) => (
