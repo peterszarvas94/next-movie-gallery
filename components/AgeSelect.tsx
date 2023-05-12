@@ -1,8 +1,9 @@
+import type { AgeRating } from "@/types/movie";
 import Radio from "./Radio";
 
 interface Props {
-  value: number;
-  setValue: (value: number) => void;
+  value: AgeRating;
+  setValue: (value: AgeRating) => void;
 }
 
 function AgeSelect({ value, setValue }: Props) {

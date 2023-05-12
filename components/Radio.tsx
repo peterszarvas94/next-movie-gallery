@@ -1,10 +1,11 @@
+import type { AgeRating } from "@/types/movie";
 import { IoMdClose } from "react-icons/io";
 
 interface RadioProps {
   label: string;
-  age: number;
-  value: number;
-  setValue: (value: number) => void;
+  age: AgeRating;
+  value: AgeRating;
+  setValue: (value: AgeRating) => void;
 }
 
 export default function Radio({ label, age, value, setValue }: RadioProps) {

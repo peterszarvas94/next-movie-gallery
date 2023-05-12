@@ -2,7 +2,7 @@
 
 import AgeSelect from '@/components/AgeSelect';
 import { db } from '@/db';
-import { Inputs } from '@/types/inputs';
+import type { Inputs } from '@/types/inputs';
 import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
 import { AiOutlineUnorderedList } from 'react-icons/ai';

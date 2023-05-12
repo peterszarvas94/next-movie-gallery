@@ -2,11 +2,12 @@
 
 import AgeSelect from "@/components/AgeSelect";
 import Movies from "@/components/Movies";
+import type { AgeRating } from "@/types/movie";
 import { useState } from "react";
 
 export default function Home() {
 
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState<AgeRating>(18);
 
   return (
     <main className="bg-secondary text-primary min-h-screen">
