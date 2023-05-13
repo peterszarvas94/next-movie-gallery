@@ -11,8 +11,8 @@ Then run in a terminal:
 
 ```
 npm install
-npm built
-npm start
+npm run build
+npm run start
 ```
 
 Go to `localhost:3000` or any other address the terminal shows
