@@ -1,30 +1,23 @@
 "use client";
 
 import Form from '@/components/Form';
-import type { Inputs } from '@/utils/types';
-import { useRouter } from 'next/navigation';
+import type { Input } from '@/utils/types';
 
 export default function AddMoviePage() {
 
-  const router = useRouter();
-
-  async function onSubmit(data: Inputs) {
-    const postRes = await fetch("/api/movies", {
+  async function onSubmit(data: Input) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
+      cache: "no-store",
     });
-    if (!postRes.ok) {
-      console.error(postRes);
-      return;
-    }
 
-    const revalRes = await fetch("/api/movies/revalidate");
-    if (!revalRes.ok) {
-      console.error(revalRes);
-      return;
+    if (res.ok) {
+      window.location.href = "/";
     }
-
-    router.push("/");
   }
 
   return (

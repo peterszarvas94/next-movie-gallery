@@ -1,41 +1,26 @@
 import Card from "./Card";
-import { useEffect, useState } from "react";
-import type { Movie as MovieType } from "@/utils/types";
+import type { Movie } from "@/utils/types";
 
 interface Props {
   value: number;
+  movies: Movie[];
 }
 
-export default function Movies({ value }: Props) {
+export default function Movies({ value, movies }: Props) {
 
-  const [movies, setMovies] = useState<MovieType[]>([])
-
-  useEffect(() => {
-    async function fetchData() {
-      const moviesRes = await fetch(`/api/movies/`)
-      if (!moviesRes.ok) {
-        console.error(moviesRes);
-        return;
-      }
-
-      const movies = await moviesRes.json();
-      if (!movies) {
-        console.error(movies);
-        return;
-      }
-
-      setMovies(movies);
-    }
-
-    fetchData()
-      .catch(console.error);
-  }, []);
+  if (movies.length === 0) {
+    return (
+      <div className="flex flex-col gap-10 pt-10 font-body w-fit mx-auto">
+        - No movies found -
+      </div>
+    );
+  }
 
   const filteredMovies = movies.filter((movie) => movie.ageRating <= value);
 
   return (
     <div className="flex flex-col gap-10 pb-10">
-      {filteredMovies.map((movie: MovieType) => (
+      {filteredMovies.map((movie: Movie) => (
         <Card movie={movie} key={movie._id} />
       ))}
     </div>

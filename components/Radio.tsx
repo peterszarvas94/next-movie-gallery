@@ -25,7 +25,7 @@ export default function Radio({ label, age, value, setValue }: RadioProps) {
         onKeyDown={(e) => checkAccept(e)}>
         {value === age && <IoMdClose className="h-full w-full" />}
       </div>
-      <div className="pl-2 cursor-pointer" onClick={() => setValue(age)}>{label}</div>
+      <div className="pl-2 cursor-pointer h-5" onClick={() => setValue(age)}>{label}</div>
     </div>
   )
 }
