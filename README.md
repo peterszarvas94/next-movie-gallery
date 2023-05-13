@@ -1,13 +1,14 @@
 # Movie gallery
 
-Prerequisites:
+Prerequisites to set up mock database:
 - go to [CrudCrud](https://crudcrud.com/)
-- get your API key from the url: `https://crudcrud.com/api/your_api_key_here`
-- create an `.env` file in the project's root folder
-- paste the key into the first line: `CRUD_ID="your_api_key_here"`, as you can see in the `.env.example` file
-- install [node.js](https://nodejs.org/) on your machine
+- get your API key from the provided url: `https://crudcrud.com/api/your_api_key_here`
+- rename the `.env.exmaple` file to `.env`
+- paste the API key into the first line of the `.env` file: `CRUD_ID="your_api_key_here"` 
+- make sure [node.js](https://nodejs.org/) is installed
 
-Then run in a terminal window:
+Then run in a terminal:
+
 ```
 npm install
 npm built
